@@ -1,0 +1,52 @@
+samuel38, danielmergy
+342472495, 342533627
+samuel assouline, daniel mergy
+
+
+=============================
+=  README for ex12: =
+=============================
+- for_in_a_row.py
+- ex12
+==================
+=  Description:  =
+==================
+-four_in_a_row.py:
+    run the game by cally the constructor of GUI
+-ex12:
+    -game.py:
+        in this file we have the class Game that represents the logic of the
+        game. i would like to specify here that we made the  win_coordination
+         function for the GUI to have the coordination of the four aligned
+         disks and place the star in our grid
+    -ai.py:
+        in this file we have the class AI.we explain the logic of the ai
+        functionnment in the special comments
+    -gui.py:
+        in this file we have the class GUI that represents the graphical
+        interface
+
+
+
+======================
+=  Special Comments  =
+======================
+we will explain here how our ai works:
+at each moment we want that the ai plays we check each possible 'scenario' on
+the 4 following strokes(for that we use the function product from itertool).
+if a scenario makes the ai wins we are increasing the value that correspond to
+the first move in our col_dic of this scenario (each move is a coloumn) by 1000
+in the same way if a scneario makes the ai loses we are decreasing the value
+that correspond to the first move of this scenarion by 1000. if a scenario
+makes the ai moves at the first stroke we are increasing the value that
+correspond to this col by 200000 to prioritize the move that will make the
+ai wins directly.
+how we deal with the param timeout:
+we tests many times how long our function takes to execute with the module
+time. for example we see that if we want to check for the 4 following strokes
+our ai takes maximum 3 seconds so if we stop our find_legal_move() after 3 sec
+the function has the time to checks all the scenario for the 4 following
+strokes. depending on the runtime of our function we decide that if timeout is
+smaller than 3000 and bigger than 300 the function will checks all the scenario
+for the 3 following stokes. if smaller than 300 and bigger than 50 the 2
+following strokes if smaller than 50 just one stoke
